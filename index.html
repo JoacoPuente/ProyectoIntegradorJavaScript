@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/7b3cee2547.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="./assets/imgs/Logo/logo.png" alt="Logo" />
+      <nav class="nav">
+        <button id="abrir" class="abrir-btn abrir-menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <button class="cerrar-btn" id="cerrar">
+          <i class="fa-solid fa-x"></i>
+        </button>
+        <ul class="nav-list">
+          <li><a class="navbar-link" href="#hero">Inicio</a></li>
+          <li><a class="navbar-link" href="#beneficios">Beneficios</a></li>
+          <li><a class="navbar-link" href="#productos">Productos</a></li>
+          <li><a class="navbar-link" href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="underline"></div>
+        <div class="cart-label">
+          <i class="fa-solid fa-cart-shopping cart-icon">
+            <div class="cart-number"></div>
+          </i>
+        </div>
+
+        <div class="cart">
+          <h2>Carrito de compras</h2>
+
+          <div class="cart-container"></div>
+
+          <span class="divider"></span>
+
+          <div class="cart-total">
+            <p>Total:</p>
+            <span class="total"></span>
+          </div>
+          <button class="btn-buy">Comprar</button>
+          <button class="btn-delete">Vaciar carrito</button>
+        </div>
+        <div class="overlay"></div>
+      </nav>
+    </header>
+    <main>
+      <section id="products">
+        <h2>Nuestros Pads</h2>
+        <div class="categories">
+          <button class="category active">Todos</button>
+          <button class="category" data-category="bosque">
+            Bosque Encantado
+          </button>
+          <button class="category" data-category="oceano">
+            Océano Profundo
+          </button>
+          <button class="category" data-category="cielo">
+            Cielo Estrellado
+          </button>
+          <button class="category" data-category="desierto">
+            Desierto al Atardecer
+          </button>
+        </div>
+
+        <!-- products -->
+        <div class="products-container"></div>
+        <button class="btn-load">Ver Más</button>
+      </section>
+    </main>
+    <footer>
+      <div>
+        <ul class="footer-links">
+          <li><a href="#">Términos de Uso</a></li>
+          <li><a href="#">Trabajá con Nosotros</a></li>
+          <li><a href="#">Soporte</a></li>
+        </ul>
+      </div>
+      <p>Hecho con ❤️ en <span>NUCBACRYPTO</span></p>
+    </footer>
+    <div class="add-modal"></div>
+
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
