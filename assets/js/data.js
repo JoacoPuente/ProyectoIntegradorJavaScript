@@ -5,6 +5,8 @@ const productsData = [
     price: 5400,
     category: "bosque",
     cardImg: "./assets/imgs/Productos/bosque-gel-1.png",
+    // cardImg2: "./assets/imgs/Productos/bosque-gel-2.png",
+    // cardImg3: "./assets/imgs/Productos/bosque-gel-3.png",
   },
   {
     id: 2,
@@ -12,6 +14,8 @@ const productsData = [
     price: 8700,
     category: "bosque",
     cardImg: "./assets/imgs/Productos/bosque-chico-1.png",
+    // cardImg2: "./assets/imgs/Productos/bosque-chico-2.png",
+    // cardImg3: "./assets/imgs/Productos/bosque-chico-3.png",
   },
   {
     id: 3,
@@ -19,6 +23,8 @@ const productsData = [
     price: 12000,
     category: "bosque",
     cardImg: "./assets/imgs/Productos/bosque-grande-1.png",
+    // cardImg2: "./assets/imgs/Productos/bosque-grande-2.png",
+    // cardImg3: "./assets/imgs/Productos/bosque-grande-3.png",
   },
   {
     id: 4,
@@ -26,6 +32,8 @@ const productsData = [
     price: 5400,
     category: "oceano",
     cardImg: "./assets/imgs/Productos/oceano-gel-1.png",
+    // cardImg2: "./assets/imgs/Productos/oceano-gel-2.png",
+    // cardImg3: "./assets/imgs/Productos/oceano-gel-3.png",
   },
   {
     id: 5,
@@ -33,6 +41,8 @@ const productsData = [
     price: 8700,
     category: "oceano",
     cardImg: "./assets/imgs/Productos/oceano-chico-1.png",
+    // cardImg2: "./assets/imgs/Productos/oceano-chico-2.png",
+    // cardImg3: "./assets/imgs/Productos/oceano-chico-3.png",
   },
   {
     id: 6,
@@ -40,6 +50,8 @@ const productsData = [
     price: 12000,
     category: "oceano",
     cardImg: "./assets/imgs/Productos/oceano-grande-1.png",
+    // cardImg2: "./assets/imgs/Productos/oceano-grande-2.png",
+    // cardImg3: "./assets/imgs/Productos/oceano-grande-3.png",
   },
   {
     id: 7,
@@ -47,6 +59,8 @@ const productsData = [
     price: 5400,
     category: "cielo",
     cardImg: "./assets/imgs/Productos/cielo-gel-1.png",
+    // cardImg2: "./assets/imgs/Productos/cielo-gel-2.png",
+    // cardImg3: "./assets/imgs/Productos/cielo-gel-3.png",
   },
   {
     id: 8,
@@ -54,6 +68,8 @@ const productsData = [
     price: 8700,
     category: "cielo",
     cardImg: "./assets/imgs/Productos/cielo-chico-1.png",
+    // cardImg2: "./assets/imgs/Productos/cielo-chico-2.png",
+    // cardImg3: "./assets/imgs/Productos/cielo-chico-3.png",
   },
   {
     id: 9,
@@ -61,6 +77,8 @@ const productsData = [
     price: 12000,
     category: "cielo",
     cardImg: "./assets/imgs/Productos/cielo-grande-1.png",
+    // cardImg2: "./assets/imgs/Productos/cielo-grande-2.png",
+    // cardImg3: "./assets/imgs/Productos/cielo-grande-3.png",
   },
   {
     id: 10,
@@ -68,6 +86,8 @@ const productsData = [
     price: 5400,
     category: "desierto",
     cardImg: "./assets/imgs/Productos/desierto-gel-1.png",
+    // cardImg2: "./assets/imgs/Productos/desierto-gel-2.png",
+    // cardImg3: "./assets/imgs/Productos/desierto-gel-3.png",
   },
   {
     id: 11,
@@ -75,6 +95,8 @@ const productsData = [
     price: 8700,
     category: "desierto",
     cardImg: "./assets/imgs/Productos/desierto-chico-1.png",
+    // cardImg2: "./assets/imgs/Productos/desierto-chico-2.png",
+    // cardImg3: "./assets/imgs/Productos/desierto-chico-3.png",
   },
   {
     id: 12,
@@ -82,6 +104,8 @@ const productsData = [
     price: 12000,
     category: "desierto",
     cardImg: "./assets/imgs/Productos/desierto-grande-1.png",
+    // cardImg2: "./assets/imgs/Productos/desierto-grande-2.png",
+    // cardImg3: "./assets/imgs/Productos/desierto-grande-3.png",
   },
 ];
 

@@ -222,7 +222,7 @@ const addProduct = (e) => {
   const product = createProductData(e.target.dataset);
   if (isExistingCartProduct(product)) {
     addUnitToProduct(product);
-    showSuccessModal("Se agregó una unidad del producto al carrito");
+    ("Se agregó una unidad del producto al carrito");
   } else {
     createCartPorduct(product);
     showSuccessModal("El producto se ha agregado al carrito");
