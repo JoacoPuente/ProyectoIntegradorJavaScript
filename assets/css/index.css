@@ -305,6 +305,16 @@ main {
 .hero-button a:hover {
   background-color: #a8dadc;
 }
+
+#logout-message {
+  background-color: #748cab;
+  color: #2d2d2d;
+  text-align: center;
+  padding: 8px 18px;
+  border-radius: 1rem;
+  font-size: 20px;
+}
+
 .portada {
   width: 40%;
 }
@@ -610,44 +620,6 @@ footer a {
 .active-modal {
   transform: translateY(0);
   transition: all 0.2s ease-in;
-}
-
-/* ------------------------------------------- */
-
-.formulario-box {
-  width: 400px;
-  height: 500px;
-  background: #492c1a;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.formulario-box h1 {
-  color: #eef4ed;
-  font-size: 25px;
-  margin-bottom: 20px;
-}
-
-.formulario-box input {
-  padding: 15px 35px 15px 15px;
-  border-radius: 8px;
-  background-color: #5e503f;
-  color: #eef4ed;
-  outline: none;
-  border: none;
-}
-
-.formulario-box a {
-  background-color: #bf4342;
-  color: #eef4ed;
-  margin-top: 30px;
-  font-size: 15px;
-  padding: 15px 25px;
-  border-radius: 1rem;
 }
 
 /* MEDIAQUERIES */

@@ -14,6 +14,24 @@ const cartMenu = document.querySelector(".cart");
 const overlay = document.querySelector(".overlay");
 const successModal = document.querySelector(".add-modal");
 const deleteBtn = document.querySelector(".btn-delete");
+const logoutBtn = document.getElementById("logout-message");
+const userName = document.getElementById("user-name");
+
+function isUserLoggedIn() {
+  return localStorage.getItem("activeUser") !== null;
+}
+
+// Nos traemos el usuario del sessionStorage
+const activeUser = JSON.parse(sessionStorage.getItem("activeUser"));
+
+// Función de logout
+
+const logout = () => {
+  if (window.confirm("¿Estas seguro que deseas cerrar sesión?")) {
+    sessionStorage.removeItem("activeUser");
+    window.location.href = "../../index.html";
+  }
+};
 
 //MENU HAMBURGUESA---------------------------------------------------------------------------
 
@@ -319,7 +337,13 @@ const createCartPorduct = (product) => {
 };
 
 // Función para crear un objeto con la información del producto que se agrega al carrito
+
 const addProduct = (e) => {
+  if (!isUserLoggedIn()) {
+    alert("Debes iniciar sesión para agregar productos al carrito.");
+    return;
+  }
+
   if (!e.target.classList.contains("btn-add")) return;
   const product = createProductData(e.target.dataset);
   if (isExistingCartProduct(product)) {
@@ -432,6 +456,7 @@ const init = () => {
   renderCartNumber(cart);
   abrir.addEventListener("click", openMenu);
   cerrar.addEventListener("click", openMenu);
+  logoutBtn.addEventListener("click", logout);
 };
 
 init();

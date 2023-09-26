@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MouseMood</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+    <link rel="stylesheet" href="../css/register.css" />
+    <script
+      src="https://kit.fontawesome.com/7b3cee2547.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <img src="../imgs/Logo/logo.png" alt="Logo" />
+        <a href="../../index.html"
+          >Volvel al inicio <i class="fa-solid fa-house"></i
+        ></a>
+      </nav>
+    </header>
+    <main>
+      <form class="form__container" id="register-form" novalidate>
+        <p class="form__title">Crea tu cuenta</p>
+
+        <!-- Nombre -->
+        <div class="form__field">
+          <input
+            type="text"
+            placeholder="Nombre"
+            class="form__input"
+            id="name"
+            autocomplete="off"
+          />
+          <small></small>
+        </div>
+
+        <!-- Apellido -->
+        <div class="form__field">
+          <input
+            type="text"
+            placeholder="Apellido"
+            class="form__input"
+            id="lastName"
+            autocomplete="off"
+          />
+          <small></small>
+        </div>
+
+        <!-- Telefono -->
+        <div class="form__field">
+          <input
+            type="text"
+            placeholder="Telefono"
+            class="form__input"
+            id="phone"
+            autocomplete="off"
+          />
+          <small></small>
+        </div>
+        <!-- Email -->
+        <div class="form__field">
+          <input
+            type="email"
+            placeholder="Email"
+            class="form__input"
+            id="email"
+            autocomplete="off"
+          />
+          <small></small>
+        </div>
+
+        <!-- Password -->
+        <div class="form__field">
+          <input
+            type="password"
+            placeholder="Password"
+            class="form__input"
+            id="password"
+            autocomplete="off"
+          />
+          <small></small>
+        </div>
+
+        <input type="submit" class="form__submit__btn" value="Registrarse" />
+        <p class="form--redirect">
+          Si ya tenés cuenta
+          <a class="link--gradient" href="./login.html">Iniciá Sesión</a>
+        </p>
+      </form>
+    </main>
+    <footer>
+      <img src="../imgs/Logo/logo.png" alt="" />
+      <div>
+        <ul class="footer-links">
+          <li><a href="#">Condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Ayuda y asistencia</a></li>
+          <li><a href="#">Empleo</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../js/register.js"></script>
+  </body>
+</html>
