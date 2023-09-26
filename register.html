@@ -2,14 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>PUENTECH</title>
-    <link rel="stylesheet" href="./assets/style.css" />
-    <script
-      src="https://kit.fontawesome.com/7b3cee2547.js"
-      crossorigin="anonymous"
-    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MouseMood</title>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -28,46 +23,49 @@
       href="./assets/favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="./assets/css/register.css" />
+    <script
+      src="https://kit.fontawesome.com/7b3cee2547.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
-      <img src="./assets/imgs/logo.png" alt="Logo" class="logo" />
       <nav>
-        <label for="toggle-menu" class="bars-menu"
-          ><i class="fa-solid fa-bars"></i
-        ></label>
-        <input type="checkbox" id="toggle-menu" />
-        <ul class="navbar-list">
-          <li><a href="#hero">Inicio</a></li>
-          <li><a href="#beneficios">Beneficios</a></li>
-          <li><a href="#cards">Servicios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-        <div class="underline"></div>
+        <img class="logo" src="./assets/imgs/Logo/logo.png" alt="Logo" />
+        <a href="./index.html"
+          >Volver al inicio <i class="fa-solid fa-right-from-bracket"></i
+        ></a>
       </nav>
     </header>
 
     <main>
-      <form class="formulario">
-        <div class="formulario-box">
-          <h1>Crea tu cuenta</h1>
-          <input type="text" placeholder="Nombre" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Contraseña" />
-          <input type="text" placeholder="Telefono" />
-          <a href="./index.html">Ingresar</a>
-        </div>
-      </form>
+      <section id="formulario">
+        <form>
+          <div class="form-container">
+            <h1>Crea tu cuenta</h1>
+            <input type="text" placeholder="Nombre" />
+            <input type="text" placeholder="Apellido" />
+            <input type="text" placeholder="Telefono" />
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Contraseña" />
+            <input type="password" placeholder="Repetir Contraseña" />
+            <a href="./index.html">Crear</a>
+          </div>
+        </form>
+      </section>
     </main>
 
-    <footer>
+    <!-- <footer>
+      <img src="./assets/imgs/Logo/logo.png" alt="" />
       <div>
         <ul class="footer-links">
-          <li><a href="#">Términos de Uso</a></li>
-          <li><a href="#">Trabajá con Nosotros</a></li>
-          <li><a href="#">Soporte</a></li>
+          <li><a href="#">Condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Ayuda y asistencia</a></li>
+          <li><a href="#">Empleo</a></li>
         </ul>
       </div>
-    </footer>
+    </footer> -->
   </body>
 </html>
