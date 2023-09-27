@@ -29,7 +29,7 @@ const showError = (message) => {
 const getUser = () => {
   return users.find((user) => user.email === emailInput.value.trim());
 };
-// Función para validar si la passwor dingresada coincide con la registrada para ese mail
+// Función para validar si la password dingresada coincide con la registrada para ese mail
 const isMatchingPass = (input) => {
   const user = getUser();
   return user.password === input.value.trim(); //''
@@ -64,7 +64,7 @@ const isValidAccount = () => {
   return valid;
 };
 
-// funcion para loguar al usuario
+// funcion para loguear al usuario
 
 const login = (e) => {
   e.preventDefault();
@@ -80,5 +80,3 @@ const init = () => {
 };
 
 init();
-
-// Exitoso!

@@ -1,28 +1,32 @@
 const menuHam = document.querySelector(".nav-list");
-const abrir = document.querySelector("#abrir");
-const cerrar = document.querySelector("#cerrar");
-const productsContainer = document.querySelector(".products-container");
-const productsCart = document.querySelector(".cart-container");
-const total = document.querySelector(".total");
-const categoriesContainer = document.querySelector(".categories");
-const categoriesList = document.querySelectorAll(".category");
-const showMoreBtn = document.querySelector(".btn-load");
-const buyBtn = document.querySelector(".btn-buy");
+const openMenu = document.querySelector("#abrir");
+const closeMenu = document.querySelector("#cerrar");
 const cartNumber = document.querySelector(".cart-number");
 const cartBtn = document.querySelector(".cart-label");
 const cartMenu = document.querySelector(".cart");
 const overlay = document.querySelector(".overlay");
-const successModal = document.querySelector(".add-modal");
+const productsCart = document.querySelector(".cart-container");
+const total = document.querySelector(".total");
+const buyBtn = document.querySelector(".btn-buy");
 const deleteBtn = document.querySelector(".btn-delete");
-const logoutBtn = document.getElementById("logout-message");
+const productsContainer = document.querySelector(".products-container");
+const categoriesContainer = document.querySelector(".categories");
+const categoriesList = document.querySelectorAll(".category");
+const showMoreBtn = document.querySelector(".btn-load");
+const successModal = document.querySelector(".add-modal");
 const sesionBtn = document.querySelector(".hero-button");
-const userName = document.getElementById("user-name");
+const logoutBtn = document.getElementById("logout-message");
+
+// SESIONES----------------------------------------------------------------------------------
+
+// Función determina si el usuario está conectado
+
+const isUserLoggedIn = () => sessionStorage.getItem("activeUser") !== null;
 
 // Nos traemos el usuario del sessionStorage
 const activeUser = JSON.parse(sessionStorage.getItem("activeUser"));
 
 // Función de logout
-
 const logout = () => {
   if (window.confirm("¿Estas seguro que deseas cerrar sesión?")) {
     sessionStorage.removeItem("activeUser");
@@ -30,28 +34,31 @@ const logout = () => {
   }
 };
 
-// funcion de botones se sesion
+// Función que muestra o oculta los botones de sesion
 
-const botoneSesion = () => {
+const toggleAuthenticationButtons = () => {
   if (!isUserLoggedIn()) {
     logoutBtn.classList.add("hidden");
   } else {
     sesionBtn.classList.add("hidden");
   }
 };
+
 //MENU HAMBURGUESA---------------------------------------------------------------------------
 
-const openMenu = () => {
+//Función que activa o desactiva el menu hamburguesa
+
+const toggleMenu = () => {
   menuHam.classList.toggle("visible");
 
   if (menuHam.classList.contains("visible")) {
-    abrir.classList.remove("abrir-menu");
-    abrir.classList.add("hidden");
-    cerrar.classList.add("cerrar-menu");
+    openMenu.classList.remove("abrir-menu");
+    openMenu.classList.add("hidden");
+    closeMenu.classList.add("cerrar-menu");
   } else {
-    cerrar.classList.remove("cerrar-menu");
-    abrir.classList.remove("hidden");
-    abrir.classList.add("abrir-menu");
+    closeMenu.classList.remove("cerrar-menu");
+    openMenu.classList.remove("hidden");
+    openMenu.classList.add("abrir-menu");
   }
 
   if (cartMenu.classList.contains("open-cart")) {
@@ -66,8 +73,8 @@ const openMenu = () => {
 const closeOnClick = (e) => {
   if (!e.target.classList.contains("navbar-link")) return;
   menuHam.classList.remove("visible");
-  cerrar.classList.remove("cerrar-menu");
-  abrir.classList.add("abrir-menu");
+  closeMenu.classList.remove("cerrar-menu");
+  openMenu.classList.add("abrir-menu");
   overlay.classList.remove("show-overlay");
 };
 
@@ -80,8 +87,8 @@ const closeOnScroll = () => {
     return;
 
   menuHam.classList.remove("visible");
-  cerrar.classList.remove("cerrar-menu");
-  abrir.classList.add("abrir-menu");
+  closeMenu.classList.remove("cerrar-menu");
+  openMenu.classList.add("abrir-menu");
   cartMenu.classList.remove("open-cart");
   overlay.classList.remove("show-overlay");
 };
@@ -89,8 +96,8 @@ const closeOnScroll = () => {
 //Función para cerrar el menú hamburguewsa y el overlay cuando se hace click en el overlay
 const closeOnOverlayClick = () => {
   menuHam.classList.remove("visible");
-  cerrar.classList.remove("cerrar-menu");
-  abrir.classList.add("abrir-menu");
+  closeMenu.classList.remove("cerrar-menu");
+  openMenu.classList.add("abrir-menu");
   cartMenu.classList.remove("open-cart");
   overlay.classList.remove("show-overlay");
 };
@@ -98,6 +105,8 @@ const closeOnOverlayClick = () => {
 //MAIN------------------------------------------------------------------------------------
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+//Función para crear la card del producto
 
 const createProductTemplate = (product) => {
   const { id, name, price, cardImg } = product;
@@ -122,42 +131,18 @@ const createProductTemplate = (product) => {
 </div>`;
 };
 
+//Función que renderiza y añade una lista de productos al contenedor de productos
+
 const renderProducts = (productList) => {
   productsContainer.innerHTML += productList
     .map(createProductTemplate)
     .join("");
 };
 
-// Ver más //
-
-const isLastIndexOf = () => {
-  return appState.currentProductsIndex === appState.productsLimit - 1;
-};
-
-// Función par arenderizar mas productos cuando la persona pariete ver más
-
-const showMoreProducts = () => {
-  appState.currentProductsIndex += 1;
-  let { products, currentProductsIndex } = appState;
-  renderProducts(products[currentProductsIndex]);
-  if (isLastIndexOf()) {
-    showMoreBtn.classList.add("hidden");
-  }
-};
-
-// función para mostrar u ocultar el boton de ver más
-
-const setShowMoreVisibility = () => {
-  if (!appState.activeFilter) {
-    showMoreBtn.classList.remove("hidden");
-    return;
-  }
-  showMoreBtn.classList.add("hidden");
-};
-
 // Lógica de los filtros
 
-// Fucnión para cambiar el estado de los botones del filtro/categorias
+// Función para cambiar el estado de los botones de las categorias
+
 const changeBtnActiveState = (selectedCategory) => {
   const categories = [...categoriesList];
   categories.forEach((categoryBtn) => {
@@ -219,7 +204,36 @@ const showSuccessModal = (msg) => {
   successModal.textContent = msg;
   setTimeout(() => {
     successModal.classList.remove("active-modal");
-  }, 1500); // 1500ms === 1,5s
+  }, 1500);
+};
+
+// Ver más //
+
+//Función que determina si el índice actual de productos es el último en el límite de productos.
+
+const isLastIndexOf = () => {
+  return appState.currentProductsIndex === appState.productsLimit - 1;
+};
+
+// Función para renderizar mas productos cuando la persona apariete ver más
+
+const showMoreProducts = () => {
+  appState.currentProductsIndex += 1;
+  let { products, currentProductsIndex } = appState;
+  renderProducts(products[currentProductsIndex]);
+  if (isLastIndexOf()) {
+    showMoreBtn.classList.add("hidden");
+  }
+};
+
+// función para mostrar u ocultar el boton de ver más
+
+const setShowMoreVisibility = () => {
+  if (!appState.activeFilter) {
+    showMoreBtn.classList.remove("hidden");
+    return;
+  }
+  showMoreBtn.classList.add("hidden");
 };
 
 //CARRITO DE COMPRAS---------------------------------------------------------------------------
@@ -230,14 +244,12 @@ const toggleCart = () => {
   cartMenu.classList.toggle("open-cart");
   if (menuHam.classList.contains("visible")) {
     menuHam.classList.remove("visible");
-    cerrar.classList.remove("cerrar-menu");
-    abrir.classList.add("abrir-menu");
+    closeMenu.classList.remove("cerrar-menu");
+    openMenu.classList.add("abrir-menu");
     return;
   }
   overlay.classList.toggle("show-overlay");
 };
-
-// Lógica para agregar items al carrito
 
 // Función para crear el template de un producto en el carrito
 
@@ -268,19 +280,19 @@ const renderCart = () => {
   productsCart.innerHTML = cart.map(createCartProductTemplate).join("");
 };
 
-// función para obtener el total de la compra
+// Función para obtener el total de la compra
 
 const getCartTotal = () => {
   return cart.reduce((acc, cur) => acc + Number(cur.price) * cur.quantity, 0);
 };
 
-// función para mostrar el total de la compra
+// Función para mostrar el total de la compra
 
 const showCartTotal = () => {
   total.innerHTML = `$${getCartTotal()}`;
 };
 
-// función para actualizar la burbuja de cantidad con el numero de productos en el carrito
+// Función para actualizar la burbuja de cantidad con el numero de productos en el carrito
 
 const renderCartNumber = () => {
   cartNumber.textContent = cart.reduce((acc, cur) => acc + cur.quantity, 0);
@@ -324,11 +336,13 @@ const createProductData = ({ id, name, price, img }) => {
 };
 
 //Función para saber si un producto ya existe en el carrito
+
 const isExistingCartProduct = (product) => {
   return cart.find((item) => item.id === product.id);
 };
 
 // Función para agregar una unidad a un producto que ya este en el el carrito
+
 const addUnitToProduct = (product) => {
   cart = cart.map((cartProduct) =>
     cartProduct.id === product.id
@@ -338,6 +352,7 @@ const addUnitToProduct = (product) => {
 };
 
 // Función para crear un objeto con la info del producto que se quiere agregar al carrito
+
 const createCartPorduct = (product) => {
   cart = [...cart, { ...product, quantity: 1 }];
 };
@@ -347,6 +362,7 @@ const createCartPorduct = (product) => {
 const addProduct = (e) => {
   if (!isUserLoggedIn()) {
     alert("Debes iniciar sesión para agregar productos al carrito.");
+    document.getElementById("hero").scrollIntoView({ behavior: "smooth" });
     return;
   }
 
@@ -413,6 +429,7 @@ const handleQuantity = (e) => {
 };
 
 // Función para vaciar el carrito
+
 const resetCartItems = () => {
   cart = [];
   updateCartState();
@@ -441,17 +458,16 @@ const deleteCart = () => {
   );
 };
 
-const isUserLoggedIn = () => sessionStorage.getItem("activeUser") !== null;
-
-// -------------------------------------------------------------------------------------------------
-
 const init = () => {
+  openMenu.addEventListener("click", toggleMenu);
+  closeMenu.addEventListener("click", toggleMenu);
+  menuHam.addEventListener("click", closeOnClick);
   renderProducts(appState.products[0]);
+  logoutBtn.addEventListener("click", logout);
   showMoreBtn.addEventListener("click", showMoreProducts);
   categoriesContainer.addEventListener("click", applyFilter);
   cartBtn.addEventListener("click", toggleCart);
   window.addEventListener("scroll", closeOnScroll);
-  menuHam.addEventListener("click", closeOnClick);
   overlay.addEventListener("click", closeOnOverlayClick);
   document.addEventListener("DOMContentLoaded", renderCart);
   document.addEventListener("DOMContentLoaded", showCartTotal);
@@ -462,10 +478,7 @@ const init = () => {
   disableBtn(buyBtn);
   disableBtn(deleteBtn);
   renderCartNumber(cart);
-  abrir.addEventListener("click", openMenu);
-  cerrar.addEventListener("click", openMenu);
-  logoutBtn.addEventListener("click", logout);
-  botoneSesion();
+  toggleAuthenticationButtons();
 };
 
 init();
