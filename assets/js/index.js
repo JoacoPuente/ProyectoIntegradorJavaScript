@@ -15,11 +15,8 @@ const overlay = document.querySelector(".overlay");
 const successModal = document.querySelector(".add-modal");
 const deleteBtn = document.querySelector(".btn-delete");
 const logoutBtn = document.getElementById("logout-message");
+const sesionBtn = document.querySelector(".hero-button");
 const userName = document.getElementById("user-name");
-
-function isUserLoggedIn() {
-  return localStorage.getItem("activeUser") !== null;
-}
 
 // Nos traemos el usuario del sessionStorage
 const activeUser = JSON.parse(sessionStorage.getItem("activeUser"));
@@ -29,10 +26,19 @@ const activeUser = JSON.parse(sessionStorage.getItem("activeUser"));
 const logout = () => {
   if (window.confirm("¿Estas seguro que deseas cerrar sesión?")) {
     sessionStorage.removeItem("activeUser");
-    window.location.href = "../../index.html";
+    window.location.href = "./index.html";
   }
 };
 
+// funcion de botones se sesion
+
+const botoneSesion = () => {
+  if (!isUserLoggedIn()) {
+    logoutBtn.classList.add("hidden");
+  } else {
+    sesionBtn.classList.add("hidden");
+  }
+};
 //MENU HAMBURGUESA---------------------------------------------------------------------------
 
 const openMenu = () => {
@@ -435,6 +441,8 @@ const deleteCart = () => {
   );
 };
 
+const isUserLoggedIn = () => sessionStorage.getItem("activeUser") !== null;
+
 // -------------------------------------------------------------------------------------------------
 
 const init = () => {
@@ -457,6 +465,7 @@ const init = () => {
   abrir.addEventListener("click", openMenu);
   cerrar.addEventListener("click", openMenu);
   logoutBtn.addEventListener("click", logout);
+  botoneSesion();
 };
 
 init();
