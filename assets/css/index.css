@@ -307,12 +307,24 @@ main {
 }
 
 #logout-message {
-  background-color: #748cab;
+  background-color: #e0afa0;
   color: #2d2d2d;
   text-align: center;
+  width: 210px;
   padding: 8px 18px;
   border-radius: 1rem;
   font-size: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#logout-message i {
+  color: #2d2d2d;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+#logout-message:hover {
+  background-color: #fd9271;
 }
 
 .portada {
@@ -445,6 +457,7 @@ main {
   width: 355px;
   height: 315px;
 }
+
 .product-info {
   display: flex;
   flex-direction: column;
@@ -590,11 +603,7 @@ footer a {
   gap: 20px;
 }
 
-/*MENSAJE DE PRODUCTO AGREGADO*/
-
-.hidden {
-  display: none;
-}
+/* BOTONES DESACTIVADOS */
 
 .disabled {
   background-color: #e0afa0;
@@ -602,6 +611,8 @@ footer a {
   cursor: not-allowed;
   border: none;
 }
+
+/*MENSAJE DE PRODUCTO AGREGADO*/
 
 .add-modal {
   padding: 15px 0px;
@@ -620,6 +631,10 @@ footer a {
 .active-modal {
   transform: translateY(0);
   transition: all 0.2s ease-in;
+}
+
+.hidden {
+  display: none;
 }
 
 /* MEDIAQUERIES */
